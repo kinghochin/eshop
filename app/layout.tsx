@@ -4,7 +4,7 @@ import "./globals.css";
 import Nav from "@/components/section/Nav";
 import { ClerkProvider } from "@clerk/nextjs";
 import Footer from "@/components/section/Footer";
-//import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,7 +34,7 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
             <Nav />
-            {/* <Toaster /> */}
+            <Toaster />
             {children}
             <Footer />
           </body>

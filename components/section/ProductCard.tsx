@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { HeartIcon, ShoppingBag, StarIcon } from 'lucide-react';
 import { Button } from '../ui/button';
-//import { useToast } from '@/hooks/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 
 type Props = {
@@ -16,13 +16,13 @@ type Props = {
 const ProductCard = ({ product }: Props) => {
   const num = Math.round(product.rating.rate);
   const ratingArray = new Array(num).fill(0);
-  //const { toast } = useToast()
+  const { toast } = useToast()
 
   const addToCartHandler = (product:Product) => {
-    // toast({
-    //   description: "Item added!",
-    //   variant: "success",
-    // })
+    toast({
+      description: "Item added!",
+      variant: "success",
+    })
   };
 
   return (
