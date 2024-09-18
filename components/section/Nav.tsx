@@ -12,7 +12,7 @@ const Nav = () => {
         <div className="flex items-center justify-between w-[95%] md:w-4/5 mx-auto h-full">
             {/* logo */}
             <Link href="/">
-                <Image src="/images/logo.png" alt="logo" width={180} height={140} className="object-none w-48 h-14"/>
+                <Image src="/images/logo.png" alt="logo" width={180} height={140} className="object-none w-56 h-20"/>
             </Link>
             <div className="flex items-center space-x-6">
                 <SearchIcon size={26} cursor={"pointer"}/>
