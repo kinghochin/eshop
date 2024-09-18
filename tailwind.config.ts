@@ -12,10 +12,10 @@ const config: Config = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-			logo:{
-				DEFAULT: '#DB4A2B',
-				background: '#E4E2DD'
-			},
+  			logo: {
+  				DEFAULT: '#DB4A2B',
+  				background: '#E4E2DD'
+  			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -55,12 +55,12 @@ const config: Config = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-		text: {
-			logo:{
-				DEFAULT: '#DB4A2B',
-				background: '#E4E2DD'
-			},
-		},
+  		text: {
+  			logo: {
+  				DEFAULT: '#DB4A2B',
+  				background: '#E4E2DD'
+  			}
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
