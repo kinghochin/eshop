@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from 'next/link';
 import { HeartIcon, ShoppingBag, StarIcon } from 'lucide-react';
 import { Button } from '../ui/button';
+import { useDispatch } from 'react-redux';
+import { addItem } from '@/store/cartSlice';
 import { useToast } from '@/hooks/use-toast';
 
 
@@ -18,11 +20,13 @@ const ProductCard = ({ product }: Props) => {
   const ratingArray = new Array(num).fill(0);
   const { toast } = useToast()
 
+  const dispatch = useDispatch();
   const addToCartHandler = (product:Product) => {
     toast({
       description: "Item added!",
       variant: "success",
     })
+    dispatch(addItem(product));
   };
 
   return (

@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/section/Nav";
 import { ClerkProvider } from "@clerk/nextjs";
 import Footer from "@/components/section/Footer";
+import StoreProvider from '../StoreProvider/StoreProvider';
 import { Toaster } from "@/components/ui/toaster"
 
 const geistSans = localFont({
@@ -28,6 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <StoreProvider>
       <ClerkProvider>
         <html lang="en">
           <body
@@ -40,5 +42,6 @@ export default function RootLayout({
           </body>
         </html>
       </ClerkProvider>
+    </StoreProvider>
   );
 }
