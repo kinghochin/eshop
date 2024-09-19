@@ -8,8 +8,15 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useUser } from '@clerk/nextjs';
 import { addItem, CartItem, removeItem } from '@/store/cartSlice';
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import CheckoutPage from '@/components/page/CheckoutPage';
 
+if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
+    throw new Error("STRIP PUBLIC KEY not defined!")
+}
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -92,8 +99,17 @@ const Cart = () => {
                             </Link>
                         )}
                         {
-                            user && ( 
-                                <CheckoutPage />
+                            user && (
+                                <Elements
+                                    stripe={stripePromise}
+                                    options={({
+                                        mode: "payment",
+                                        amount: Number((Number(totalPricewVat) * 100).toFixed(0)),
+                                        currency: "gbp",
+                                    })}
+                                >
+                                    <CheckoutPage amount={Number(totalPricewVat)} />
+                                </Elements>
                             )
                         }
                     </div>
