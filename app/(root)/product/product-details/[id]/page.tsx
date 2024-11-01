@@ -6,15 +6,6 @@ import { StarIcon } from 'lucide-react';
 import AddCart from './add-cart';
 import ProductCard from '@/components/section/ProductCard';
 
-export async function generateStaticParams() {
-  // Replace this with actual logic to fetch product IDs from your data source
-  const productIds = ['1', '2', '3']; // Example product IDs
-
-  return productIds.map(id => ({
-    id: id,  // Each object should have a key corresponding to your dynamic segment
-  }));
-}
-
 const ProductDetails = async ({ params }: { params: { id: string }}) => {
   const id = params.id;
   const product:Product = await getProduct(id);
