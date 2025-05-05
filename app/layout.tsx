@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Footer from "@/components/section/Footer";
 import StoreProvider from '../StoreProvider/StoreProvider';
 import { Toaster } from "@/components/ui/toaster"
+import ChatWidget from "@/components/section/ChatWidget";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,6 +40,7 @@ export default function RootLayout({
             <Toaster />
             {children}
             <Footer />
+            <ChatWidget iframeUrl={`${process.env.NEXT_PUBLIC_AGENT_API_URL}?embed=true`} />
           </body>
         </html>
       </ClerkProvider>
